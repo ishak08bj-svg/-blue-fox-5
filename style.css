@@ -1,72 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+/* ===== PRO TRANSLATOR UI STYLE ===== */
 
-* {
-  box-sizing: border-box;
+:root{
+    --bg:#0f172a;
+    --card:#ffffff;
+    --primary:#2563eb;
+    --secondary:#22c55e;
+    --text:#0f172a;
+    --muted:#64748b;
+    --radius:18px;
 }
 
-body {
-  margin: 0;
-  font-family: 'Cairo', sans-serif;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Reset */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: "Inter", system-ui, sans-serif;
 }
 
-/* Card */
-.converter {
-  background: white;
-  width: 100%;
-  max-width: 420px;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  direction: rtl;
-  text-align: center;
+body{
+    min-height:100vh;
+    background: radial-gradient(circle at top,#1e3a8a,#020617);
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* Title */
-.converter h1 {
-  margin-bottom: 20px;
-  font-size: 26px;
-  font-weight: 700;
+/* App Card */
+.app{
+    background:var(--card);
+    width:95%;
+    max-width:1000px;
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:0 40px 80px rgba(0,0,0,.45);
+    animation:fade .6s ease;
 }
 
-/* Inputs */
-.converter input,
-.converter select {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  font-size: 16px;
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:none}
 }
 
-/* Button */
-.converter button {
-  width: 100%;
-  padding: 14px;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
 }
 
-.converter button:hover {
-  background: #4338ca;
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:var(--primary);
 }
 
-/* Result */
-.result {
-  margin-top: 20px;
-  padding: 15px;
-  background: #eef2ff;
-  border-radius: 12px;
-  font-weight: 600;
+.badge{
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#e0e7ff;
+    color:#3730a3;
+}
+
+/* Controls */
+.controls{
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+select{
+    flex:1;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    font-size:14px;
+    background:#f9fafb;
+}
+
+select:focus{
+    outline:none;
+    border-color:var(--primary);
+}
+
+/* Swap Button */
+.swap{
+    width:48px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.swap:hover{
+    opacity:.85;
+}
+
+/* Textareas */
+.boxes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+textarea{
+    width:100%;
+    height:190px;
+    border-radius:14px;
+    padding:16px;
+    border:1px solid #e5e7eb;
+    font-size:15px;
+    resize:none;
+    background:#f9fafb;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:var(--primary);
+    background:white;
+}
+
+/* Actions */
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:14px;
+}
+
+.btn{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    font-size:15px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.translate{
+    background:linear-gradient(135deg,var(--primary),#1d4ed8);
+    color:white;
+}
+
+.copy{
+    background:linear-gradient(135deg,var(--secondary),#16a34a);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:13px;
+    margin-top:12px;
+    color:var(--muted);
+}
+
+/* Responsive */
+@media(max-width:800px){
+    .boxes{
+        grid-template-columns:1fr;
+    }
 }
