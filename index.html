@@ -2,18 +2,37 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<title>محول العملات ثنائي اللغة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Offline Translator</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-<div class="glass">
-<h1>🌐 مترجم بدون إنترنت</h1>
-<textarea id="input" placeholder="اكتب جملة بالإنجليزية..."></textarea>
-<div id="suggestions"></div>
-<button onclick="translateSentence()">ترجمة</button>
-<textarea id="output" placeholder="الترجمة" readonly></textarea>
+
+<body class="dark">
+
+<div class="top-bar">
+  <button class="mode" onclick="toggleMode()">🌙 / ☀️</button>
+  <button class="lang" onclick="toggleLang()">🌐 EN / AR</button>
 </div>
+
+<div class="container">
+  <h1 id="title">🌍 محول العملات</h1>
+
+  <input type="number" id="amount" placeholder="أدخل المبلغ">
+
+  <div class="select-box">
+    <select id="from"></select>
+    <span id="swap">⇄</span>
+    <select id="to"></select>
+  </div>
+
+  <button id="convert-btn" onclick="convert()">تحويل</button>
+
+  <div class="result" id="result"></div>
+
+  <canvas id="chart"></canvas>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
